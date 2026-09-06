@@ -57,9 +57,10 @@ export default function Navbar({ resumeUrl }) {
             </a>
           ))}
           <a
-            href={resumeUrl || '/M.Abdullah Ultimate.pdf'}
+            href={resumeUrl || '/ABDULLAH_RESUME.pdf'}
             target="_blank"
             rel="noopener noreferrer"
+            download="ABDULLAH_RESUME.pdf"
             className="navbar-cta"
           >
             Resume PDF
@@ -84,6 +85,17 @@ export default function Navbar({ resumeUrl }) {
             {link.name}
           </a>
         ))}
+        <a
+          href={resumeUrl || '/ABDULLAH_RESUME.pdf'}
+          target="_blank"
+          rel="noopener noreferrer"
+          download="ABDULLAH_RESUME.pdf"
+          className="navbar-cta"
+          style={{ marginTop: '1rem', textAlign: 'center' }}
+          onClick={() => setMenuOpen(false)}
+        >
+          Resume PDF
+        </a>
       </div>
     </nav>
   );
