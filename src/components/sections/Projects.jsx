@@ -210,7 +210,7 @@ export default function Projects({ projects = [] }) {
         <ProjectModal
           project={{
             ...project,
-            image: slides[activeSlide]?.url || project.image
+            image: '/images/retinaxplain.jpg'
           }}
           onClose={() => setShowModal(false)}
         />
