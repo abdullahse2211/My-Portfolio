@@ -117,21 +117,37 @@ export default function Hero({ profile }) {
                   Download CV
                 </Button>
               </a>
-              <a href={profile?.socialLinks?.github || 'https://github.com/abdullahse2211'} target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" icon={FiGithub}>
-                  GitHub
-                </Button>
-              </a>
-              <a href={profile?.socialLinks?.linkedin || 'https://linkedin.com/in/muhammad-abdullah2211'} target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" icon={FiLinkedin}>
-                  LinkedIn
-                </Button>
-              </a>
-              <a href={`mailto:${profile?.email || 'abdullahse2211@gmail.com'}`}>
-                <Button variant="outline" icon={FiMail}>
-                  Email Me
-                </Button>
-              </a>
+
+              <div className="hero-social-icons-group">
+                <a
+                  href={profile?.socialLinks?.github || 'https://github.com/abdullahse2211'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hero-social-icon-btn"
+                  aria-label="GitHub Profile"
+                  title="GitHub"
+                >
+                  <FiGithub />
+                </a>
+                <a
+                  href={profile?.socialLinks?.linkedin || 'https://linkedin.com/in/muhammad-abdullah2211'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hero-social-icon-btn"
+                  aria-label="LinkedIn Profile"
+                  title="LinkedIn"
+                >
+                  <FiLinkedin />
+                </a>
+                <a
+                  href={`mailto:${profile?.email || 'abdullahse2211@gmail.com'}`}
+                  className="hero-social-icon-btn"
+                  aria-label="Email Me"
+                  title="Email"
+                >
+                  <FiMail />
+                </a>
+              </div>
             </div>
           </div>
 
