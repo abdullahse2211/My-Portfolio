@@ -141,8 +141,27 @@ export default function Projects({ projects = [] }) {
                 <span className="dot dot-yellow"></span>
                 <span className="dot dot-green"></span>
               </div>
+
               <div className="preview-url-bar">
                 <span>{slides[activeSlide]?.path || 'retinaxplain.ai / streamlit-app'}</span>
+              </div>
+
+              {/* Top Right Dashboard Quick Tabs */}
+              <div className="preview-chrome-tabs">
+                {slides.map((s, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    className={`preview-tab-btn ${activeSlide === idx ? 'active' : ''}`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setActiveSlide(idx);
+                    }}
+                    title={`Switch to ${s.label}`}
+                  >
+                    {s.tag || `Dashboard ${idx + 1}`}
+                  </button>
+                ))}
               </div>
             </div>
 
@@ -174,24 +193,6 @@ export default function Projects({ projects = [] }) {
               >
                 <FiChevronRight />
               </button>
-
-              {/* Top Right Dashboard Tabs */}
-              <div className="spotlight-slide-tabs">
-                {slides.map((s, idx) => (
-                  <button
-                    key={idx}
-                    type="button"
-                    className={`spotlight-slide-tab ${activeSlide === idx ? 'active' : ''}`}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setActiveSlide(idx);
-                    }}
-                    title={`Switch to ${s.label}`}
-                  >
-                    <span>{s.tag || `View ${idx + 1}`}</span>
-                  </button>
-                ))}
-              </div>
 
               {/* Bottom Info Overlay */}
               <div className="spotlight-screen-overlay">
