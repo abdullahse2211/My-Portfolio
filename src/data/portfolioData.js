@@ -167,37 +167,38 @@ export const portfolioData = {
   experiences: [
     {
       id: 'allytica-aiml',
-      role: 'AI/ML ENGINEER',
-      company: 'ALLYTICA',
+      role: 'AI/ML Engineer',
+      employmentType: 'Part-Time, 30 hrs/week',
+      company: 'Allytica',
       duration: '01/09/2025 – 03/09/2026',
-      location: 'LAHORE, PAKISTAN',
+      location: 'Lahore, Pakistan',
       contributions: [
         {
-          title: 'Agentic GraphRAG & Workflow Orchestration',
-          text: 'Engineered Agentic GraphRAG architectures integrating Neo4j Knowledge Graphs and LlamaIndex agents, reducing multi-hop retrieval hallucinations by ',
+          title: 'Agentic GraphRAG & Knowledge Architectures',
+          text: 'Co-architected enterprise Agentic GraphRAG pipelines within a specialized 2-person AI engineering unit, integrating Neo4j Knowledge Graphs with LlamaIndex agents to reduce multihop retrieval hallucinations by ',
           metric: '42%'
         },
         {
-          title: 'Sovereign AI Quantization & Local Edge Optimization',
-          text: 'Quantized open-weights LLMs/VLMs using 4-bit AWQ and deployed containerized vLLM microservices, reducing VRAM footprint by ',
+          title: 'Sovereign LLM Quantization & Edge Optimization',
+          text: 'Collaborated directly with a senior systems engineer to quantize open-weights LLMs/VLMs via 4-bit AWQ and deploy containerized vLLM microservices, reducing VRAM footprint by ',
           metric: '60%',
           textMid: ' and first-token latency by ',
           metric2: '55%'
         },
         {
-          title: 'Multimodal Visual Document Parsing',
-          text: 'Fine-tuned multimodal Vision-Language Models (Qwen2-VL) using LoRA and converted vision backbones to TensorRT FP16 execution engines, accelerating inference to ',
+          title: 'Multimodal Vision Engine Acceleration',
+          text: 'Spearheaded the fine-tuning of multimodal Vision-Language Models (Qwen2-VL) using LoRA under senior technical oversight, converting vision backbones into TensorRT FP16 execution engines to achieve ',
           metric: '62 FPS'
         },
         {
           title: 'Enterprise Risk Analytics & Anomaly Detection',
-          text: 'Built end-to-end statistical risk scoring and anomaly detection pipelines in PyTorch, maintaining a ',
+          text: 'Developed end-to-end statistical risk scoring and anomaly detection pipelines in PyTorch, maintaining a ',
           metric: '0.91+ AUC',
           textMid: ' on out-of-distribution enterprise transaction streams.'
         },
         {
-          title: 'Sovereign Compliance & Microservices',
-          text: 'Integrated strict data residency guardrails and REST API microservices using FastAPI and Docker to comply with cloud requirements.'
+          title: 'Sovereign Cloud & Microservice Architecture',
+          text: 'Engineered secure REST API microservices using FastAPI and Docker in a pair-programming environment, implementing strict data residency guardrails for sovereign cloud compliance.'
         }
       ],
       techStack: [

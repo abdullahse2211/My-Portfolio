@@ -2,7 +2,7 @@ import React from 'react';
 import SectionHeader from '../common/SectionHeader';
 import Badge from '../common/Badge';
 import useScrollReveal from '../../hooks/useScrollReveal';
-import { FiBriefcase, FiCalendar, FiMapPin, FiCheckCircle, FiZap, FiCpu } from 'react-icons/fi';
+import { FiBriefcase, FiCalendar, FiMapPin, FiCheckCircle, FiZap, FiCpu, FiClock } from 'react-icons/fi';
 
 export default function Experience({ experiences = [] }) {
   const revealRef = useScrollReveal();
@@ -13,7 +13,6 @@ export default function Experience({ experiences = [] }) {
     <section id="experience" className="section">
       <div className="container">
         <SectionHeader
-          label=""
           title="Industry & Engineering Experience"
           subtitle="Building sovereign AI infrastructure, Agentic GraphRAG, and production vision-language models."
         />
@@ -32,7 +31,13 @@ export default function Experience({ experiences = [] }) {
               <div className="experience-card">
                 <div className="experience-header">
                   <div className="experience-role-title">
-                    <span className="experience-company-badge">{exp.company}</span>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '0.25rem' }}>
+                      <span className="experience-company-badge">{exp.company}</span>
+                      <span className="experience-type-badge">
+                        <FiClock style={{ marginRight: '0.3rem', fontSize: '0.75rem' }} />
+                        {exp.employmentType || 'Part-Time (30 hrs/week)'}
+                      </span>
+                    </div>
                     <h3 className="experience-role">{exp.role}</h3>
                   </div>
                   <div className="experience-meta">
@@ -68,7 +73,7 @@ export default function Experience({ experiences = [] }) {
 
                   {/* Core Tech Stack Micro-Badges */}
                   <div className="experience-tech-section">
-                    <span className="tech-section-label">// CORE TECH STACK</span>
+                    <span className="tech-section-label">CORE TECH STACK</span>
                     <div className="experience-tech-tags">
                       {exp.techStack?.map((tag, tIdx) => (
                         <Badge key={tIdx} text={tag} />
