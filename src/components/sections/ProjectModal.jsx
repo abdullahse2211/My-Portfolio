@@ -136,7 +136,7 @@ export default function ProjectModal({ project, onClose, onOpenVideo }) {
           <div className="retina-pipeline-section">
             <h4 className="retina-section-label">
               <FiLayers style={{ marginRight: '0.4rem' }} />
-              // PREPROCESSING PIPELINE
+              PREPROCESSING PIPELINE
             </h4>
             <div className="retina-pipeline-grid">
               <div className="retina-pipeline-card">
@@ -165,7 +165,7 @@ export default function ProjectModal({ project, onClose, onOpenVideo }) {
           {/* Benchmark Metrics */}
           {project.metrics && project.metrics.length > 0 && (
             <div className="retina-metrics-section">
-              <h4 className="retina-section-label">// BENCHMARK METRICS</h4>
+              <h4 className="retina-section-label">BENCHMARK METRICS</h4>
               <div className="modal-metrics">
                 {project.metrics.map((m, idx) => (
                   <div key={idx} className="modal-metric retina-metric-card">
@@ -187,7 +187,7 @@ export default function ProjectModal({ project, onClose, onOpenVideo }) {
           {/* Key Technical Achievements */}
           {project.highlights && project.highlights.length > 0 && (
             <div className="modal-highlights">
-              <h4>// KEY TECHNICAL ACHIEVEMENTS</h4>
+              <h4>KEY TECHNICAL ACHIEVEMENTS</h4>
               <ul>
                 {project.highlights.map((h, idx) => (
                   <li key={idx}>{h}</li>

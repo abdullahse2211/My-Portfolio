@@ -49,7 +49,7 @@ export default function Experience({ experiences = [] }) {
 
                 {/* Key Contributions & Impact Bullet Points */}
                 <div className="experience-body">
-                  <h4 className="experience-subtitle">// KEY IMPACT & TECHNICAL CONTRIBUTIONS</h4>
+                  <h4 className="experience-subtitle">KEY IMPACT & TECHNICAL CONTRIBUTIONS</h4>
                   <ul className="experience-impact-list">
                     {exp.contributions?.map((item, idx) => (
                       <li key={idx} className="experience-impact-item">

@@ -15,7 +15,9 @@ export default function Certifications({ certs = [] }) {
       credentialId: 'mTp4-DwVM',
       verificationLink: 'https://certiport.com',
       grade: 'Certified',
-      image: '/cert-js.png'
+      image: '/cert-js.png',
+      isInternational: true,
+      badgeLabel: 'International Certification'
     },
     {
       title: 'Javascript Fullstack MERN Development',
@@ -89,76 +91,85 @@ export default function Certifications({ certs = [] }) {
         />
 
         <div ref={revealRef} className="certs-slip-grid reveal">
-          {displayCerts.map((cert, idx) => (
-            <div
-              key={cert._id || idx}
-              className="cert-slip"
-              onClick={() => setSelectedCert(cert)}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
-                  setSelectedCert(cert);
-                }
-              }}
-              title="Click to view full certificate"
-            >
-              <div className="cert-slip-preview">
-                <img
-                  src={cert.image || `/images/cert-${idx + 1}.png`}
-                  alt={cert.title}
-                  className="cert-slip-img"
-                  onError={(e) => {
-                    e.target.style.opacity = '0';
-                  }}
-                />
-                <div className="cert-slip-overlay">
-                  <FiMaximize2 className="cert-slip-icon" />
-                </div>
-              </div>
+          {displayCerts.map((cert, idx) => {
+            const isIntl = cert.isInternational || cert.credentialId === 'mTp4-DwVM';
+            return (
+              <div
+                key={cert._id || idx}
+                className={`cert-slip ${isIntl ? 'cert-slip-international' : ''}`}
+                onClick={() => setSelectedCert(cert)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    setSelectedCert(cert);
+                  }
+                }}
+                title="Click to view full certificate"
+              >
+                {isIntl && (
+                  <div className="cert-intl-ribbon">
+                    <span>🌐 International Certification</span>
+                  </div>
+                )}
 
-              <div className="cert-slip-info">
-                <h4>{cert.title}</h4>
-                <p className="cert-slip-issuer">
-                  {cert.issuer}
-                  {cert.trainingPartner && ` • ${cert.trainingPartner}`}
-                  {cert.venue && ` • ${cert.venue}`}
-                  {cert.location && ` • ${cert.location}`}
-                </p>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem', alignItems: 'center', marginTop: '0.35rem' }}>
-                  {cert.credentialId && (
-                    <code className="cert-slip-id">{cert.credentialId}</code>
-                  )}
-                  {cert.date && (
-                    <span style={{ fontSize: '0.75rem', color: 'var(--text-tertiary)', fontFamily: 'var(--font-mono)' }}>
-                      {cert.date}
-                    </span>
-                  )}
-                  {cert.verificationLink && (
-                    <a
-                      href={cert.verificationLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        fontSize: '0.75rem',
-                        color: 'var(--accent-primary)',
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '0.25rem',
-                        textDecoration: 'none'
-                      }}
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      Verify <FiExternalLink size={11} />
-                    </a>
-                  )}
+                <div className="cert-slip-preview">
+                  <img
+                    src={cert.image || `/images/cert-${idx + 1}.png`}
+                    alt={cert.title}
+                    className="cert-slip-img"
+                    onError={(e) => {
+                      e.target.style.opacity = '0';
+                    }}
+                  />
+                  <div className="cert-slip-overlay">
+                    <FiMaximize2 className="cert-slip-icon" />
+                  </div>
                 </div>
-              </div>
 
-              {cert.grade && <span className="cert-slip-badge">{cert.grade}</span>}
-            </div>
-          ))}
+                <div className="cert-slip-info">
+                  <h4>{cert.title}</h4>
+                  <p className="cert-slip-issuer">
+                    {cert.issuer}
+                    {cert.trainingPartner && ` • ${cert.trainingPartner}`}
+                    {cert.venue && ` • ${cert.venue}`}
+                    {cert.location && ` • ${cert.location}`}
+                  </p>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem', alignItems: 'center', marginTop: '0.35rem' }}>
+                    {cert.credentialId && (
+                      <code className="cert-slip-id">{cert.credentialId}</code>
+                    )}
+                    {cert.date && (
+                      <span style={{ fontSize: '0.75rem', color: 'var(--text-tertiary)', fontFamily: 'var(--font-mono)' }}>
+                        {cert.date}
+                      </span>
+                    )}
+                    {cert.verificationLink && (
+                      <a
+                        href={cert.verificationLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          fontSize: '0.75rem',
+                          color: 'var(--accent-primary)',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '0.25rem',
+                          textDecoration: 'none'
+                        }}
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        Verify <FiExternalLink size={11} />
+                      </a>
+                    )}
+                  </div>
+                </div>
+
+                {cert.grade && <span className="cert-slip-badge">{cert.grade}</span>}
+              </div>
+            );
+          })}
         </div>
       </div>
 

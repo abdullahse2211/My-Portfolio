@@ -55,16 +55,15 @@ export default function Contact({ profile }) {
     <section id="contact" className="section">
       <div className="container">
         <SectionHeader
-          label=""
-          title="Let's Discuss AI Engineering & Research"
-          subtitle="Open to AI/ML Engineer roles, Computer Vision research collaborations, or full-stack model deployments."
+          title="Let's Connect & Collaborate"
+          subtitle="Open to AI/ML Engineer roles, academic research collaborations, and production model deployments."
         />
 
         <div ref={revealRef} className="contact-content reveal">
           <div className="contact-info">
             <h3>Direct Contact</h3>
             <p>
-              Whether you are an engineering manager looking to discuss benchmark metrics or an AI laboratory seeking research collaboration, feel free to reach out directly.
+              Professors, Research Coordinators, Hiring Managers, and Engineering Leaders are warmly invited to reach out for academic research collaborations, faculty initiatives, or production AI/ML engineering roles.
             </p>
 
             <div className="contact-methods">

@@ -103,7 +103,7 @@ export default function Projects({ projects = [] }) {
             <p className="spotlight-description">{project.description}</p>
 
             <div className="spotlight-features-box">
-              <span className="features-box-label">// ARCHITECTURE & DEPLOYMENT</span>
+              <span className="features-box-label">ARCHITECTURE & DEPLOYMENT</span>
               <p>{project.features}</p>
             </div>
 
