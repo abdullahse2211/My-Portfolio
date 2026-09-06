@@ -4,10 +4,11 @@ import Badge from '../common/Badge';
 import Button from '../common/Button';
 import ProjectModal from './ProjectModal';
 import useScrollReveal from '../../hooks/useScrollReveal';
-import { FiGithub, FiExternalLink, FiCpu, FiCheckCircle } from 'react-icons/fi';
+import { FiGithub, FiExternalLink, FiCpu, FiCheckCircle, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
 export default function Projects({ projects = [] }) {
   const [showModal, setShowModal] = useState(false);
+  const [activeSlide, setActiveSlide] = useState(0);
   const revealRef = useScrollReveal();
 
   // Fallback data if projects prop is empty
@@ -27,8 +28,46 @@ export default function Projects({ projects = [] }) {
       { label: 'Training Samples', value: '~16,000' },
       { label: 'Models Ensembled', value: '3' }
     ],
-    image: '/images/projects/retinaxplain.jpg',
-    fallbackImage: '/images/retinaxplain.png'
+    image: '/Dashboard1.jpg',
+    images: [
+      {
+        url: '/Dashboard1.jpg',
+        label: 'Fundus Image Analysis & Classification',
+        tag: 'Dashboard 1',
+        path: 'retinaxplain.ai / image-analysis'
+      },
+      {
+        url: '/Dashboard2.jpg',
+        label: 'Session Analytics & Model Performance',
+        tag: 'Dashboard 2',
+        path: 'retinaxplain.ai / session-analytics'
+      }
+    ]
+  };
+
+  const slides = project.images || [
+    {
+      url: project.image || '/Dashboard1.jpg',
+      label: 'Fundus Image Analysis & Classification',
+      tag: 'Dashboard 1',
+      path: 'retinaxplain.ai / image-analysis'
+    },
+    {
+      url: '/Dashboard2.jpg',
+      label: 'Session Analytics & Model Performance',
+      tag: 'Dashboard 2',
+      path: 'retinaxplain.ai / session-analytics'
+    }
+  ];
+
+  const handlePrev = (e) => {
+    e?.stopPropagation();
+    setActiveSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+  };
+
+  const handleNext = (e) => {
+    e?.stopPropagation();
+    setActiveSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
   };
 
   return (
@@ -94,7 +133,7 @@ export default function Projects({ projects = [] }) {
             </div>
           </div>
 
-          {/* Right Column: Desktop Mockup Frame */}
+          {/* Right Column: Desktop Mockup Frame with Dashboard Slider */}
           <div className="project-spotlight-frame">
             <div className="preview-browser-chrome">
               <div className="preview-dots">
@@ -103,23 +142,62 @@ export default function Projects({ projects = [] }) {
                 <span className="dot dot-green"></span>
               </div>
               <div className="preview-url-bar">
-                <span>retinaxplain.ai / streamlit-app</span>
+                <span>{slides[activeSlide]?.path || 'retinaxplain.ai / streamlit-app'}</span>
               </div>
             </div>
 
             <div className="spotlight-screen">
               <img
-                src={project.image}
-                alt={project.title}
+                key={activeSlide}
+                src={slides[activeSlide]?.url || project.image}
+                alt={`${project.title} - ${slides[activeSlide]?.label || ''}`}
                 className="spotlight-screen-img"
-                onError={(e) => {
-                  e.target.src = project.fallbackImage || '/images/retinaxplain.png';
-                }}
               />
+
+              {/* Slider Arrows */}
+              <button
+                type="button"
+                className="spotlight-nav-btn prev"
+                onClick={handlePrev}
+                aria-label="Previous Dashboard Image"
+                title="View Dashboard 1"
+              >
+                <FiChevronLeft />
+              </button>
+
+              <button
+                type="button"
+                className="spotlight-nav-btn next"
+                onClick={handleNext}
+                aria-label="Next Dashboard Image"
+                title="View Dashboard 2"
+              >
+                <FiChevronRight />
+              </button>
+
+              {/* Top Right Dashboard Tabs */}
+              <div className="spotlight-slide-tabs">
+                {slides.map((s, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    className={`spotlight-slide-tab ${activeSlide === idx ? 'active' : ''}`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setActiveSlide(idx);
+                    }}
+                    title={`Switch to ${s.label}`}
+                  >
+                    <span>{s.tag || `View ${idx + 1}`}</span>
+                  </button>
+                ))}
+              </div>
+
+              {/* Bottom Info Overlay */}
               <div className="spotlight-screen-overlay">
                 <span className="spotlight-live-badge">
                   <FiCheckCircle style={{ color: '#10b981', marginRight: '0.35rem' }} />
-                  Streamlit Local Inference Live
+                  {slides[activeSlide]?.label || 'Streamlit Local Inference Live'}
                 </span>
               </div>
             </div>
@@ -129,10 +207,14 @@ export default function Projects({ projects = [] }) {
 
       {showModal && (
         <ProjectModal
-          project={project}
+          project={{
+            ...project,
+            image: slides[activeSlide]?.url || project.image
+          }}
           onClose={() => setShowModal(false)}
         />
       )}
     </section>
   );
 }
+

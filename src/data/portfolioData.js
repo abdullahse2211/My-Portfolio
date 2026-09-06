@@ -89,8 +89,22 @@ export const portfolioData = {
         'Triage gauges, probability charts, and automated JSON reporting'
       ],
       category: 'Medical AI',
-      image: '/images/projects/retinaxplain.jpg',
-      fallbackImage: '/images/retinaxplain.png',
+      image: '/Dashboard1.jpg',
+      images: [
+        {
+          url: '/Dashboard1.jpg',
+          label: 'Fundus Image Analysis & Classification',
+          tag: 'Dashboard 1',
+          path: 'retinaxplain.ai / image-analysis'
+        },
+        {
+          url: '/Dashboard2.jpg',
+          label: 'Session Analytics & Model Performance',
+          tag: 'Dashboard 2',
+          path: 'retinaxplain.ai / session-analytics'
+        }
+      ],
+      fallbackImage: '/Dashboard1.jpg',
       publicationStatus: 'First-author manuscript currently in preparation',
       order: 1,
       featured: true
