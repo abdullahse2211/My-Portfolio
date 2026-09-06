@@ -1,19 +1,19 @@
 export const portfolioData = {
   profile: {
     name: 'Muhammad Abdullah',
-    title: 'AI/ML Research Engineer',
+    title: 'AI/ML Engineer',
     taglines: [
       'AI/ML Engineer',
       'Computer Vision Engineer',
       'Deep Learning Engineer',
-      'AI Research Assistant'
+      'Generative AI Engineer'
     ],
     location: 'Lahore, Punjab, Pakistan',
     email: 'abdullahse2211@gmail.com',
     phone: '+92 3094157102',
-    aboutText: 'Software Engineering Graduate from Lahore Garrison University (2022–2026) specializing in Medical Computer Vision, Deep Learning, and end-to-end PyTorch pipelines. I build explainable hybrid CNN-Transformer frameworks, compress production models via Knowledge Distillation (6.4× compression with zero quality loss), and deploy full-stack inference systems backed by quantitative benchmarks.',
+    aboutText: 'I am a Software Engineering graduate and AI/ML Engineer specializing in Computer Vision, Deep Learning, and production-grade Generative AI pipelines. I bridge the gap between academic research and real-world engineering—building everything from medical image diagnostics to enterprise Agentic GraphRAG architectures. With hands-on experience in model acceleration (vLLM, TensorRT, 4-bit AWQ) and full-stack microservice deployment (FastAPI, Docker, Streamlit), I focus on engineering scalable, high-throughput, and production-ready AI systems.',
     education: {
-      degree: 'BS SE (Software Engineering)',
+      degree: 'BS Software Engineering',
       university: 'Lahore Garrison University',
       years: '2022 – 2026'
     },
@@ -74,7 +74,7 @@ export const portfolioData = {
       role: 'Sole Researcher & Developer',
       description: 'An independently developed, explainable framework for 5-class diabetic retinopathy severity classification. Processed 3,662 APTOS 2019 fundus images (augmented to ~16,000 instances) using Ben Graham normalization, circular cropping, and illumination correction. Swin Transformer Tiny achieved the strongest result with 85.27% validation accuracy and 0.7216 macro-F1.',
       features: 'Features single-model inference, simultaneous 3-model weighted soft voting ensembling, and a locally deployable multi-page Streamlit application with processing-time monitoring and downloadable JSON records.',
-      techTags: ['PyTorch', 'Swin Transformer', 'ViT-B/16', 'EfficientNet-B3', 'Streamlit', 'OpenCV', 'Medical AI'],
+      techTags: ['PyTorch', 'Swin Transformer', 'ViT-B/16', 'EfficientNet-B3', 'Streamlit', 'OpenCV', 'Computer Vision'],
       githubUrl: 'https://github.com/abdullahse2211/diabetic-retinopathy-classification',
       metrics: [
         { label: 'Validation Accuracy', value: '85.27%', numericValue: 85.27, suffix: '%' },
@@ -88,7 +88,7 @@ export const portfolioData = {
         'Fully functioning multi-page Streamlit frontend with PyTorch inference backend',
         'Triage gauges, probability charts, and automated JSON reporting'
       ],
-      category: 'Medical AI',
+      category: 'Computer Vision & Deep Learning',
       image: '/Dashboard1.jpg',
       images: [
         {

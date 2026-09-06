@@ -5,39 +5,36 @@ import useScrollReveal from '../../hooks/useScrollReveal';
 export default function About({ profile }) {
   const revealRef = useScrollReveal();
 
+  const aboutDescription =
+    profile?.aboutText ||
+    'I am a Software Engineering graduate and AI/ML Engineer specializing in Computer Vision, Deep Learning, and production-grade Generative AI pipelines. I bridge the gap between academic research and real-world engineering—building everything from medical image diagnostics to enterprise Agentic GraphRAG architectures. With hands-on experience in model acceleration (vLLM, TensorRT, 4-bit AWQ) and full-stack microservice deployment (FastAPI, Docker, Streamlit), I focus on engineering scalable, high-throughput, and production-ready AI systems.';
+
   return (
     <section id="about" className="section">
       <div className="container">
         <div className="about-layout">
           <SectionHeader
-            label=""
-            title="About me"
-            subtitle="AI/ML Engineer & Full-Stack Developer specializing in Medical Computer Vision and Deep Learning pipelines."
+            title="About Me"
+            subtitle="Bridging the gap between academic research and production-grade AI engineering."
             className="text-center"
           />
 
           <div ref={revealRef} className="about-terminal reveal">
-            {/* Mac-style Terminal Chrome */}
+            {/* Terminal Chrome Bar */}
             <div className="terminal-chrome">
               <div className="terminal-dots">
                 <span className="dot dot-red"></span>
                 <span className="dot dot-yellow"></span>
                 <span className="dot dot-green"></span>
               </div>
-              <span className="terminal-title">abdullah@portfolio — bash</span>
+              <span className="terminal-title">abdullah@portfolio — bio.sh</span>
             </div>
 
             {/* Terminal Body */}
             <div className="terminal-body">
-              <div className="terminal-line">
-                <span className="terminal-prompt">✦</span>
-                <span className="terminal-greeting">Hi</span>
-              </div>
-
               <div className="terminal-content">
-                <p>
-                  {profile?.aboutText ||
-                    'Software Engineering Graduate from Lahore Garrison University (2022–2026) specializing in Medical Computer Vision, Deep Learning, and end-to-end PyTorch pipelines. I build explainable hybrid CNN-Transformer frameworks, compress production models via Knowledge Distillation (6.4× compression with zero quality loss), and deploy full-stack inference systems backed by quantitative benchmarks.'}
+                <p className="terminal-bio-paragraph">
+                  {aboutDescription}
                 </p>
 
                 <div className="terminal-stats">
@@ -47,7 +44,7 @@ export default function About({ profile }) {
                   </div>
                   <div className="terminal-stat">
                     <span className="terminal-stat-label">Degree</span>
-                    <span className="terminal-stat-value">{profile?.education?.degree || 'BS SE (Software Engineering)'}</span>
+                    <span className="terminal-stat-value">{profile?.education?.degree || 'BS Software Engineering'}</span>
                   </div>
                   <div className="terminal-stat">
                     <span className="terminal-stat-label">Duration</span>
@@ -55,7 +52,7 @@ export default function About({ profile }) {
                   </div>
                   <div className="terminal-stat">
                     <span className="terminal-stat-label">Focus</span>
-                    <span className="terminal-stat-value">Medical CV, Deep Learning, PyTorch</span>
+                    <span className="terminal-stat-value">CV, GenAI & Model Acceleration</span>
                   </div>
                 </div>
               </div>

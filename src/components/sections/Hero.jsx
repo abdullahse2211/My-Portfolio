@@ -108,7 +108,7 @@ export default function Hero({ profile }) {
             </div>
 
             <p className="hero-description">
-              AI/ML Research Engineer specializing in <strong>Medical Computer Vision</strong>, <strong>Deep Learning</strong>, and production-ready <strong>PyTorch pipelines</strong> backed by full-stack deployment capability.
+              AI/ML Engineer specializing in <strong>Computer Vision</strong>, <strong>Deep Learning</strong>, and production-grade <strong>Generative AI pipelines</strong> backed by scalable full-stack deployment capability.
             </p>
 
             <div className="hero-buttons">

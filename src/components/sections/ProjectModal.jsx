@@ -123,7 +123,7 @@ export default function ProjectModal({ project, onClose, onOpenVideo }) {
             <h2 className="retina-title">{project.title}</h2>
             <span className="retina-category">
               <FiActivity style={{ marginRight: '0.3rem' }} />
-              {project.category || 'Medical AI'} — Preprocessing & Loss Analysis
+              {project.category || 'Computer Vision & Deep Learning'} — Preprocessing & Performance Metrics
             </span>
           </div>
 

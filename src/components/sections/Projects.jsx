@@ -23,7 +23,7 @@ export default function Projects({ projects = [] }) {
       'An independently developed, explainable framework for 5-class diabetic retinopathy severity classification. Processed 3,662 APTOS 2019 fundus images (augmented to ~16,000 instances) using Ben Graham normalization, circular cropping, and illumination correction. Swin Transformer Tiny achieved the strongest result with 85.27% validation accuracy and 0.7216 macro-F1.',
     features:
       'Features single-model inference, simultaneous 3-model weighted soft voting ensembling, and a locally deployable multi-page Streamlit application with processing-time monitoring and downloadable JSON records.',
-    techTags: ['PyTorch', 'Swin Transformer', 'ViT-B/16', 'EfficientNet-B3', 'Streamlit', 'OpenCV', 'Medical AI'],
+    techTags: ['PyTorch', 'Swin Transformer', 'ViT-B/16', 'EfficientNet-B3', 'Streamlit', 'OpenCV', 'Computer Vision'],
     githubUrl: 'https://github.com/abdullahse2211/diabetic-retinopathy-classification',
     videoUrl: 'https://youtu.be/MnS1vS5ZLqU?si=td3M1nW6vMmZRVf5',
     videoId: 'MnS1vS5ZLqU',
@@ -79,9 +79,8 @@ export default function Projects({ projects = [] }) {
     <section id="projects" className="section">
       <div className="container">
         <SectionHeader
-          label="ACADEMIC RESEARCH & CAPSTONE"
           title="Academic Project"
-          subtitle="SOTA explainable medical computer vision framework shipped with full inference frontend."
+          subtitle="Explainable computer vision framework shipped with production-grade Streamlit inference frontend."
           className="text-center"
         />
 
