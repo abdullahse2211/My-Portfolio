@@ -70,12 +70,15 @@ export const portfolioData = {
     {
       id: 'retinaxplain',
       title: 'RetinaXplain',
-      subtitle: 'A Hybrid CNN-Vision Transformer Framework for Diabetic Retinopathy Severity Classification',
-      role: 'Sole Researcher & Developer',
-      description: 'An independently developed, explainable framework for 5-class diabetic retinopathy severity classification. Processed 3,662 APTOS 2019 fundus images (augmented to ~16,000 instances) using Ben Graham normalization, circular cropping, and illumination correction. Swin Transformer Tiny achieved the strongest result with 85.27% validation accuracy and 0.7216 macro-F1.',
-      features: 'Features single-model inference, simultaneous 3-model weighted soft voting ensembling, and a locally deployable multi-page Streamlit application with processing-time monitoring and downloadable JSON records.',
+      subtitle: 'Hybrid CNN-Vision Transformer Framework for Diabetic Retinopathy Classification',
+      role: 'Final Year Project — Sole AI Researcher & Developer',
+      duration: '01/01/2026 – 22/05/2026',
+      description: 'Processed 3,662 APTOS images across 5 DR classes using circular cropping and Ben Graham normalization, expanding data to ~16,000 augmented instances. Trained and evaluated Swin-T (85.27% accuracy, 0.7216 macro-F1), EfficientNet-B3, and ViT-B/16, engineering weighted soft-voting ensembles, clinical label remap, and agreement analysis.',
+      features: 'Built a multi-page web app featuring real-time DR diagnostic reports, probability visualizers, session analytics, and downloadable JSON records; authored a 72-page technical report.',
       techTags: ['PyTorch', 'Swin Transformer', 'ViT-B/16', 'EfficientNet-B3', 'Streamlit', 'OpenCV', 'Computer Vision'],
       githubUrl: 'https://github.com/abdullahse2211/diabetic-retinopathy-classification',
+      videoUrl: 'https://youtu.be/MnS1vS5ZLqU?si=td3M1nW6vMmZRVf5',
+      videoId: 'MnS1vS5ZLqU',
       metrics: [
         { label: 'Validation Accuracy', value: '85.27%', numericValue: 85.27, suffix: '%' },
         { label: 'Macro-F1 Score', value: '0.7216', numericValue: 0.7216, suffix: '' },
@@ -104,10 +107,71 @@ export const portfolioData = {
           path: 'retinaxplain.ai / session-analytics'
         }
       ],
-      fallbackImage: '/Dashboard1.jpg',
       publicationStatus: 'First-author manuscript currently in preparation',
       order: 1,
       featured: true
+    },
+    {
+      id: 'bionafnet',
+      title: 'BioNAFNet - Low-Light Image Enhancement',
+      role: 'Student Deep Learning Researcher',
+      duration: '07/01/2026 – 08/03/2026',
+      image: '/images/bionafnet.jpg',
+      category: 'Deep Learning & Image Restoration',
+      contributions: [
+        {
+          title: 'Novel Architecture & Loss Formulation',
+          text: 'Designed a bio-inspired enhancement network trained from scratch with a composite Charbonnier, SSIM, color, and Weber-Fechner perceptual loss, surpassing 9 baselines with ',
+          metric: '28.67 dB PSNR',
+          textMid: ' on LOLv2 Real.'
+        },
+        {
+          title: 'Knowledge Distillation & Acceleration',
+          text: 'Compressed model parameters from 154M to 24M via knowledge distillation (',
+          metric: '6.4× compression',
+          textMid: ', 3.9× speedup) with zero perceptual degradation, enabling the student model to surpass the teacher by ',
+          metric2: '+0.29 dB.'
+        }
+      ],
+      metrics: [
+        { label: 'LOLv2 PSNR', value: '28.67 dB' },
+        { label: 'Compression', value: '6.4×' },
+        { label: 'Inference Speedup', value: '3.9×' },
+        { label: 'Parameters', value: '154M → 24M' }
+      ],
+      techTags: ['PyTorch', 'Knowledge Distillation', 'SSIM & Perceptual Loss', 'LOLv2 Real', 'Image Restoration'],
+      order: 2
+    },
+    {
+      id: 'thalcare',
+      title: 'ThalCare - Alpha Thalassemia Classification',
+      role: 'Student ML Researcher',
+      duration: '01/12/2025 – 02/02/2026',
+      image: '/images/thalcare.jpg',
+      category: 'Machine Learning & Diagnostics',
+      contributions: [
+        {
+          title: 'Clinical Feature Engineering',
+          text: 'Engineered 15 diagnostic features combining 9 CBC/HPLC parameters with 6 clinical indices (Mentzer, Shine & Lal, Green & King), elevating Silent Carrier diagnostic F1 to ',
+          metric: '0.92–0.955.'
+        },
+        {
+          title: 'Robust Multi-Class ML Benchmarking',
+          text: 'Evaluated 6 ML architectures (hybrid CNN-Transformer, 1D-CNN, SVM, RF, LR) for 5-class differential diagnosis, achieving ',
+          metric: '90.60% balanced accuracy',
+          textMid: ' and ',
+          metric2: '0.906 weighted F1',
+          textEnd: ' under injected clinical noise and 10% feature dropout.'
+        }
+      ],
+      metrics: [
+        { label: 'Balanced Accuracy', value: '90.60%' },
+        { label: 'Weighted F1', value: '0.906' },
+        { label: 'Diagnostic Features', value: '15 Combined' },
+        { label: 'Architectures', value: '6 Evaluated' }
+      ],
+      techTags: ['PyTorch', 'Feature Engineering', '1D-CNN', 'Hybrid CNN-Transformer', 'SVM & RF', 'Clinical Analytics'],
+      order: 3
     }
   ],
   certifications: [
