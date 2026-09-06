@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FiX, FiCheckCircle, FiBookOpen, FiChevronLeft, FiChevronRight, FiZap, FiLayers, FiActivity } from 'react-icons/fi';
+import { FaYoutube, FaPlay } from 'react-icons/fa';
 import AnimatedCounter from '../common/AnimatedCounter';
 
 const galleryImages = [
@@ -25,7 +26,7 @@ const galleryImages = [
   }
 ];
 
-export default function ProjectModal({ project, onClose }) {
+export default function ProjectModal({ project, onClose, onOpenVideo }) {
   const [currentImg, setCurrentImg] = useState(0);
 
   useEffect(() => {
@@ -200,6 +201,21 @@ export default function ProjectModal({ project, onClose }) {
             <div className="modal-publication">
               <FiBookOpen style={{ marginRight: '0.5rem' }} />
               <strong>Publication:</strong> {project.publicationStatus}
+            </div>
+          )}
+
+          {/* Watch Video Demo Action inside modal */}
+          {onOpenVideo && (
+            <div className="retina-modal-video-cta">
+              <button
+                type="button"
+                className="btn-modal-demo-video"
+                onClick={onOpenVideo}
+              >
+                <FaPlay style={{ fontSize: '0.8rem', marginRight: '0.5rem' }} />
+                <span>Watch Full Live Demo Video</span>
+                <FaYoutube style={{ fontSize: '1.2rem', marginLeft: '0.5rem', color: '#ff0000' }} />
+              </button>
             </div>
           )}
         </div>
