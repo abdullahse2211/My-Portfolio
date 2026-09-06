@@ -108,12 +108,6 @@ export default function Certifications({ certs = [] }) {
                 }}
                 title="Click to view full certificate"
               >
-                {isIntl && (
-                  <div className="cert-intl-ribbon">
-                    <span>🌐 International Certification</span>
-                  </div>
-                )}
-
                 <div className="cert-slip-preview">
                   <img
                     src={cert.image || `/images/cert-${idx + 1}.png`}
@@ -129,6 +123,11 @@ export default function Certifications({ certs = [] }) {
                 </div>
 
                 <div className="cert-slip-info">
+                  {isIntl && (
+                    <div className="cert-intl-badge-inline">
+                      <span>🌐 International Certification</span>
+                    </div>
+                  )}
                   <h4>{cert.title}</h4>
                   <p className="cert-slip-issuer">
                     {cert.issuer}

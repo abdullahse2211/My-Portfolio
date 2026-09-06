@@ -97,9 +97,9 @@ export default function Hero({ profile }) {
           <div className="hero-text">
             <span className="hero-greeting">Hi, I am</span>
             <h1 className="hero-name">
-              <span className="hero-brace">{'{' }</span>
+
               <span className="hero-name-glow">{profile?.name || 'Muhammad Abdullah'}</span>
-              <span className="hero-brace">{'}'}</span>
+
             </h1>
 
             <div className="hero-title-wrapper">
