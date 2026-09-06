@@ -34,13 +34,13 @@ export default function Projects({ projects = [] }) {
         url: '/Dashboard1.jpg',
         label: 'Fundus Image Analysis & Classification',
         tag: 'Dashboard 1',
-        path: 'retinaxplain.ai / image-analysis'
+        path: 'retinaxplain.ai/analysis'
       },
       {
         url: '/Dashboard2.jpg',
         label: 'Session Analytics & Model Performance',
         tag: 'Dashboard 2',
-        path: 'retinaxplain.ai / session-analytics'
+        path: 'retinaxplain.ai/analytics'
       }
     ]
   };
@@ -50,13 +50,13 @@ export default function Projects({ projects = [] }) {
       url: project.image || '/Dashboard1.jpg',
       label: 'Fundus Image Analysis & Classification',
       tag: 'Dashboard 1',
-      path: 'retinaxplain.ai / image-analysis'
+      path: 'retinaxplain.ai/analysis'
     },
     {
       url: '/Dashboard2.jpg',
       label: 'Session Analytics & Model Performance',
       tag: 'Dashboard 2',
-      path: 'retinaxplain.ai / session-analytics'
+      path: 'retinaxplain.ai/analytics'
     }
   ];
 
@@ -143,7 +143,7 @@ export default function Projects({ projects = [] }) {
               </div>
 
               <div className="preview-url-bar">
-                <span>{slides[activeSlide]?.path || 'retinaxplain.ai / streamlit-app'}</span>
+                <span>{slides[activeSlide]?.path || 'retinaxplain.ai/streamlit-app'}</span>
               </div>
 
               {/* Top Right Dashboard Quick Tabs */}
