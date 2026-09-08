@@ -15,7 +15,8 @@ export const portfolioData = {
     education: {
       degree: 'BS Software Engineering',
       university: 'Lahore Garrison University',
-      years: '2022 – 2026'
+      years: '2022 – 2026',
+      focus: 'Artificial Intelligence, Robotics & Deep Learning'
     },
     socialLinks: {
       github: 'https://github.com/abdullahse2211',

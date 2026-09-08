@@ -52,7 +52,7 @@ export default function About({ profile }) {
                   </div>
                   <div className="terminal-stat">
                     <span className="terminal-stat-label">Focus</span>
-                    <span className="terminal-stat-value">CV, GenAI & Model Acceleration</span>
+                    <span className="terminal-stat-value">{profile?.education?.focus || 'Artificial Intelligence, Robotics & Deep Learning'}</span>
                   </div>
                 </div>
               </div>
