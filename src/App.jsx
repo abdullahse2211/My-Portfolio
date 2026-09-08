@@ -3,6 +3,7 @@ import AnimatedCursor from 'react-animated-cursor';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import ScrollToTop from './components/layout/ScrollToTop';
+import { Analytics } from '@vercel/analytics/react';
 
 import Hero from './components/sections/Hero';
 import About from './components/sections/About';
@@ -54,6 +55,7 @@ export default function App() {
       </main>
       <Footer socials={profile?.socialLinks} />
       <ScrollToTop />
+      <Analytics />
     </>
   );
 }

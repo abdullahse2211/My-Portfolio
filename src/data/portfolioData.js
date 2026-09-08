@@ -113,34 +113,73 @@ export const portfolioData = {
     },
     {
       id: 'bionafnet',
-      title: 'BioNAFNet - Low-Light Image Enhancement',
+      title: 'BioNAFNet',
+      subtitle: 'Bio-Inspired Neural Architecture for Low-Light Image Enhancement & Restoration',
       role: 'Student Deep Learning Researcher',
       duration: '07/01/2026 – 08/03/2026',
-      image: '/images/bionafnet.jpg',
-      category: 'Deep Learning & Image Restoration',
-      contributions: [
-        {
-          title: 'Novel Architecture & Loss Formulation',
-          text: 'Designed a bio-inspired enhancement network trained from scratch with a composite Charbonnier, SSIM, color, and Weber-Fechner perceptual loss, surpassing 9 baselines with ',
-          metric: '28.67 dB PSNR',
-          textMid: ' on LOLv2 Real.'
-        },
-        {
-          title: 'Knowledge Distillation & Acceleration',
-          text: 'Compressed model parameters from 154M to 24M via knowledge distillation (',
-          metric: '6.4× compression',
-          textMid: ', 3.9× speedup) with zero perceptual degradation, enabling the student model to surpass the teacher by ',
-          metric2: '+0.29 dB.'
-        }
-      ],
+      description: 'Designed a bio-inspired enhancement network trained from scratch with a composite Charbonnier, SSIM, color, and Weber-Fechner perceptual loss, surpassing 9 baselines with 28.67 dB PSNR on LOLv2 Real. Compressed model parameters from 154M to 24M via knowledge distillation (6.4× compression, 3.9× speedup) with zero perceptual degradation, enabling the student model to surpass the teacher by +0.29 dB.',
+      features: 'Shipped interactive inference UI with live preview, qualitative benchmark visualizer, side-by-side restoration comparisons, and automated preprocessing pipeline (augmentation, cropping, resizing).',
+      techTags: ['PyTorch', 'Knowledge Distillation', 'SSIM & Perceptual Loss', 'LOLv2 Real', 'Image Restoration', 'Streamlit', 'Computer Vision'],
       metrics: [
         { label: 'LOLv2 PSNR', value: '28.67 dB' },
         { label: 'Compression', value: '6.4×' },
         { label: 'Inference Speedup', value: '3.9×' },
         { label: 'Parameters', value: '154M → 24M' }
       ],
-      techTags: ['PyTorch', 'Knowledge Distillation', 'SSIM & Perceptual Loss', 'LOLv2 Real', 'Image Restoration'],
-      order: 2
+      image: '/Dashboard.png',
+      images: [
+        {
+          url: '/Dashboard.png',
+          label: 'Inference Dashboard & Control Panel',
+          tag: 'Dashboard',
+          path: 'bionafnet.ai/dashboard'
+        },
+        {
+          url: '/Live preview page .png',
+          label: 'Live Real-Time Enhancement Preview',
+          tag: 'Live Preview',
+          path: 'bionafnet.ai/live-preview'
+        },
+        {
+          url: '/Qualitative Results.png',
+          label: 'Qualitative Benchmark Comparisons',
+          tag: 'Benchmarks',
+          path: 'bionafnet.ai/benchmarks'
+        },
+        {
+          url: '/Input Image vs Output Image.png',
+          label: 'Input vs Output Enhanced Comparison',
+          tag: 'Input vs Output',
+          path: 'bionafnet.ai/comparison'
+        },
+        {
+          url: '/Input , Enhnced and real.png',
+          label: 'Input, Enhanced & Ground Truth',
+          tag: 'Ground Truth',
+          path: 'bionafnet.ai/ground-truth'
+        },
+        {
+          url: '/Augmentation  Page.png',
+          label: 'Data Augmentation Pipeline',
+          tag: 'Augmentation',
+          path: 'bionafnet.ai/augmentation'
+        },
+        {
+          url: '/Croping page.png',
+          label: 'Crop & Boundary Processing',
+          tag: 'Cropping',
+          path: 'bionafnet.ai/cropping'
+        },
+        {
+          url: '/Resize Page.png',
+          label: 'Multi-scale Resizing Engine',
+          tag: 'Resizing',
+          path: 'bionafnet.ai/resizing'
+        }
+      ],
+      category: 'Deep Learning & Image Restoration',
+      order: 2,
+      featured: true
     },
     {
       id: 'thalcare',
