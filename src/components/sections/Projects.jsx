@@ -4,11 +4,12 @@ import Badge from '../common/Badge';
 import Button from '../common/Button';
 import ProjectModal from './ProjectModal';
 import VideoModal from './VideoModal';
+import ImageLightboxModal from '../common/ImageLightboxModal';
 import useScrollReveal from '../../hooks/useScrollReveal';
-import { FiGithub, FiExternalLink, FiCpu, FiCheckCircle, FiChevronLeft, FiChevronRight, FiCalendar, FiLayers } from 'react-icons/fi';
+import { FiGithub, FiExternalLink, FiCpu, FiCheckCircle, FiChevronLeft, FiChevronRight, FiCalendar, FiLayers, FiMaximize2 } from 'react-icons/fi';
 import { FaYoutube, FaPlay } from 'react-icons/fa';
 
-function ProjectSpotlightCard({ project, onOpenModal, onOpenVideo }) {
+function ProjectSpotlightCard({ project, onOpenModal, onOpenVideo, onOpenLightbox }) {
   const [activeSlide, setActiveSlide] = useState(0);
 
   const slides = project.images || [
@@ -108,6 +109,14 @@ function ProjectSpotlightCard({ project, onOpenModal, onOpenVideo }) {
           <Button variant="outline" onClick={() => onOpenModal(project)}>
             Inspect Architecture & Metrics
           </Button>
+
+          <Button
+            variant="outline"
+            className="btn-expand-gallery"
+            onClick={() => onOpenLightbox(slides, activeSlide, project.title)}
+          >
+            <FiMaximize2 style={{ marginRight: '0.35rem' }} /> View Full Images ({slides.length})
+          </Button>
         </div>
       </div>
 
@@ -143,20 +152,33 @@ function ProjectSpotlightCard({ project, onOpenModal, onOpenVideo }) {
           </div>
         </div>
 
-        <div className="spotlight-screen">
+        <div
+          className="spotlight-screen spotlight-screen-clickable"
+          onClick={() => onOpenLightbox(slides, activeSlide, project.title)}
+          title="Click to view fullscreen high-resolution image"
+        >
           <img
             key={activeSlide}
             src={slides[activeSlide]?.url || project.image}
             alt={`${project.title} - ${slides[activeSlide]?.label || ''}`}
-            className="spotlight-screen-img"
+            className="spotlight-screen-img spotlight-screen-contain"
           />
+
+          {/* Floating Expand Hint */}
+          <div className="spotlight-expand-hint">
+            <FiMaximize2 />
+            <span>Click to Expand</span>
+          </div>
 
           {/* Floating Demo Video Quick Button on Screen if video exists */}
           {project.videoUrl && (
             <button
               type="button"
               className="spotlight-screen-video-btn"
-              onClick={() => onOpenVideo(project.videoId || 'MnS1vS5ZLqU')}
+              onClick={(e) => {
+                e.stopPropagation();
+                onOpenVideo(project.videoId || 'MnS1vS5ZLqU');
+              }}
               title="Play Demo Video"
             >
               <span className="screen-video-play-icon">
@@ -193,6 +215,9 @@ function ProjectSpotlightCard({ project, onOpenModal, onOpenVideo }) {
               <FiCheckCircle style={{ color: '#10b981', marginRight: '0.35rem' }} />
               {slides[activeSlide]?.label || 'Deep Learning Inference Engine'}
             </span>
+            <span className="spotlight-slide-count-badge">
+              {activeSlide + 1} / {slides.length}
+            </span>
           </div>
         </div>
       </div>
@@ -203,6 +228,7 @@ function ProjectSpotlightCard({ project, onOpenModal, onOpenVideo }) {
 export default function Projects({ projects = [] }) {
   const [selectedModalProject, setSelectedModalProject] = useState(null);
   const [activeVideoId, setActiveVideoId] = useState(null);
+  const [lightboxState, setLightboxState] = useState(null); // { images, initialIndex, title }
   const revealRef = useScrollReveal();
 
   const spotlightProjects = projects.filter((p) => p.featured || p.id === 'retinaxplain' || p.id === 'bionafnet');
@@ -225,10 +251,11 @@ export default function Projects({ projects = [] }) {
               project={p}
               onOpenModal={(proj) => setSelectedModalProject(proj)}
               onOpenVideo={(vId) => setActiveVideoId(vId)}
+              onOpenLightbox={(imgs, idx, title) => setLightboxState({ images: imgs, initialIndex: idx, title })}
             />
           ))}
 
-          {/* Other Research Projects (ThalCare) */}
+          {/* Centered Research Project: ThalCare (No Image, Centered Layout) */}
           {cardProjects.length > 0 && (
             <div className="research-projects-section">
               <div className="research-section-header">
@@ -236,17 +263,11 @@ export default function Projects({ projects = [] }) {
                 <h3 className="research-section-title">Clinical Machine Learning & Diagnostic Systems</h3>
               </div>
 
-              <div className="research-projects-grid">
+              <div className="research-single-centered-container">
                 {cardProjects.map((p) => (
-                  <div key={p.id} className="research-project-card">
-                    <div className="research-card-img-wrap">
-                      <img src={p.image} alt={p.title} className="research-card-img" />
-                      <div className="research-card-overlay-gradient"></div>
-                      <span className="research-category-badge">{p.category}</span>
-                    </div>
-
-                    <div className="research-card-body">
-                      <div className="research-card-meta">
+                  <div key={p.id} className="research-project-card-centered">
+                    <div className="research-card-body-centered">
+                      <div className="research-card-meta-centered">
                         <span className="research-role-tag">
                           <FiCpu style={{ marginRight: '0.35rem', color: 'var(--accent-primary)' }} />
                           {p.role}
@@ -257,9 +278,10 @@ export default function Projects({ projects = [] }) {
                             {p.duration}
                           </span>
                         )}
+                        <span className="research-category-badge-inline">{p.category}</span>
                       </div>
 
-                      <h4 className="research-card-title">{p.title}</h4>
+                      <h4 className="research-card-title-centered">{p.title}</h4>
 
                       <div className="research-contributions-list">
                         {p.contributions?.map((c, cIdx) => (
@@ -278,7 +300,7 @@ export default function Projects({ projects = [] }) {
 
                       {/* Key Benchmark Metrics Row */}
                       {p.metrics && p.metrics.length > 0 && (
-                        <div className="research-metrics-mini-grid">
+                        <div className="research-metrics-centered-grid">
                           {p.metrics.map((m, mIdx) => (
                             <div key={mIdx} className="research-metric-mini-card">
                               <span className="research-metric-mini-val">{m.value}</span>
@@ -289,7 +311,7 @@ export default function Projects({ projects = [] }) {
                       )}
 
                       {/* Tech Tags */}
-                      <div className="research-tech-tags">
+                      <div className="research-tech-tags-centered">
                         {p.techTags?.map((tag, tIdx) => (
                           <Badge key={tIdx} text={tag} />
                         ))}
@@ -320,6 +342,16 @@ export default function Projects({ projects = [] }) {
                 }
               : null
           }
+        />
+      )}
+
+      {/* Fullscreen Multi-Image Lightbox Modal */}
+      {lightboxState && (
+        <ImageLightboxModal
+          images={lightboxState.images}
+          initialIndex={lightboxState.initialIndex}
+          title={lightboxState.title}
+          onClose={() => setLightboxState(null)}
         />
       )}
 
