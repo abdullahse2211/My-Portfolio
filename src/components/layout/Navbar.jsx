@@ -57,10 +57,10 @@ export default function Navbar({ resumeUrl }) {
             </a>
           ))}
           <a
-            href={resumeUrl || '/ABDULLAH_RESUME.pdf'}
+            href={resumeUrl || '/Muhammad Abdullah_CV.pdf'}
             target="_blank"
             rel="noopener noreferrer"
-            download="ABDULLAH_RESUME.pdf"
+            download="Muhammad Abdullah_CV.pdf"
             className="navbar-cta"
           >
             Resume PDF
@@ -86,10 +86,10 @@ export default function Navbar({ resumeUrl }) {
           </a>
         ))}
         <a
-          href={resumeUrl || '/ABDULLAH_RESUME.pdf'}
+          href={resumeUrl || '/Muhammad Abdullah_CV.pdf'}
           target="_blank"
           rel="noopener noreferrer"
-          download="ABDULLAH_RESUME.pdf"
+          download="Muhammad Abdullah_CV.pdf"
           className="navbar-cta"
           style={{ marginTop: '1rem', textAlign: 'center' }}
           onClick={() => setMenuOpen(false)}

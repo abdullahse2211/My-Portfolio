@@ -23,7 +23,7 @@ export const portfolioData = {
       linkedin: 'https://linkedin.com/in/muhammad-abdullah2211',
       email: 'mailto:abdullahse2211@gmail.com'
     },
-    resumeUrl: '/ABDULLAH_RESUME.pdf',
+    resumeUrl: '/Muhammad Abdullah_CV.pdf',
     avatarUrl: '/profile-pic.png',
     statsHighlights: [
       { label: 'Research Projects', value: '4' },
@@ -270,52 +270,51 @@ export const portfolioData = {
   ],
   experiences: [
     {
-      id: 'allytica-aiml',
-      role: 'AI/ML Engineer',
-      employmentType: 'Part-Time, 30 hrs/week',
-      company: 'Allytica',
-      duration: '01/09/2025 – 03/09/2026',
+      id: 'ailytica-aiml',
+      role: 'AI/ML Engineer (Full-Time, Jun 2026–Present) | Jr. AI/ML Engineer (Part-Time, Sep 2025–May 2026)',
+      employmentType: 'Full-Time (Current)',
+      company: 'Ailytica',
+      duration: '01/09/2025 – Present',
       location: 'Lahore, Pakistan',
       contributions: [
         {
-          title: 'Agentic GraphRAG & Knowledge Architectures',
-          text: 'Co-architected enterprise Agentic GraphRAG pipelines within a specialized 2-person AI engineering unit, integrating Neo4j Knowledge Graphs with LlamaIndex agents to reduce multihop retrieval hallucinations by ',
-          metric: '42%'
+          title: 'Medical Vision & Feature Segmentation',
+          text: 'Designed and deployed hybrid CNN-Transformer models (Swin-UNet, MedSAM adaptations) for automated 2D/3D feature extraction and multi-class image segmentation, achieving sub-second GPU latency and high Dice similarity scores across target datasets.'
         },
         {
-          title: 'Sovereign LLM Quantization & Edge Optimization',
-          text: 'Collaborated directly with a senior systems engineer to quantize open-weights LLMs/VLMs via 4-bit AWQ and deploy containerized vLLM microservices, reducing VRAM footprint by ',
-          metric: '60%',
-          textMid: ' and first-token latency by ',
-          metric2: '55%'
+          title: 'MLOps, Quantization & Inference Infrastructure',
+          text: 'Engineered end-to-end MLOps pipelines utilizing vLLM and TensorRT-LLM to serve quantized models (AWQ/QAT), reducing VRAM consumption by ',
+          metric: '45%',
+          textMid: ' while doubling inference throughput across Docker-containerized microservices.'
         },
         {
-          title: 'Multimodal Vision Engine Acceleration',
-          text: 'Spearheaded the fine-tuning of multimodal Vision-Language Models (Qwen2-VL) using LoRA under senior technical oversight, converting vision backbones into TensorRT FP16 execution engines to achieve ',
-          metric: '62 FPS'
+          title: 'Edge Vision & Real-Time Tracking',
+          text: 'Built real-time visual tracking and spatial feature-extraction microservices using OpenCV, TensorRT, and PyTorch, optimizing processing speed to ',
+          metric: '30+ FPS',
+          textMid: ' for deployment on resource-constrained embedded nodes.'
         },
         {
-          title: 'Enterprise Risk Analytics & Anomaly Detection',
-          text: 'Developed end-to-end statistical risk scoring and anomaly detection pipelines in PyTorch, maintaining a ',
-          metric: '0.91+ AUC',
-          textMid: ' on out-of-distribution enterprise transaction streams.'
+          title: 'GraphRAG & Knowledge Retrieval',
+          text: 'Developed enterprise GraphRAG architectures integrating Graph Neural Networks (GNNs) with vector databases (Qdrant), improving retrieval contextual accuracy by ',
+          metric: '35%',
+          textMid: ' on complex structured datasets.'
         },
         {
-          title: 'Sovereign Cloud & Microservice Architecture',
-          text: 'Engineered secure REST API microservices using FastAPI and Docker in a pair-programming environment, implementing strict data residency guardrails for sovereign cloud compliance.'
+          title: 'Dataset Engineering & Model Benchmarking',
+          text: 'Built automated data preprocessing, synthetic augmentation, and benchmarking scripts in PyTorch for deep learning backbones (UNet, ResNet, EfficientNet), establishing baseline metrics for downstream production tasks.'
         }
       ],
       techStack: [
         'PyTorch',
-        'Qwen2-VL',
-        'LlamaIndex',
+        'Swin-UNet',
+        'MedSAM',
         'vLLM',
-        'TensorRT',
-        '4-bit AWQ',
-        'Neo4j',
-        'FastAPI',
+        'TensorRT-LLM',
+        'OpenCV',
+        'Qdrant',
+        'GraphRAG',
         'Docker',
-        'Streamlit'
+        'FastAPI'
       ]
     }
   ]

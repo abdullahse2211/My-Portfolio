@@ -113,10 +113,10 @@ export default function Hero({ profile }) {
 
             <div className="hero-buttons">
               <a
-                href={profile?.resumeUrl || '/ABDULLAH_RESUME.pdf'}
+                href={profile?.resumeUrl || '/Muhammad Abdullah_CV.pdf'}
                 target="_blank"
                 rel="noopener noreferrer"
-                download="ABDULLAH_RESUME.pdf"
+                download="Muhammad Abdullah_CV.pdf"
               >
                 <Button variant="primary" icon={FiDownload}>
                   Download CV
