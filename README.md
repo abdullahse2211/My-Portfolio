@@ -21,7 +21,7 @@ Welcome to my personal portfolio repository. This modern, interactive, and respo
 
 - 🎓 **Education:** Software Engineering Graduate from **Lahore Garrison University** (2022–2026) | *Specializing in Deep Learning & Medical Imaging*
 - 🔬 **Research Focus:** Hybrid CNN-Vision Transformers, Knowledge Distillation, Diffusion Models (DDPM/DDIM), and Sovereign AI Optimization
-- 💼 **Industry Experience:** AI/ML Engineer at **ALLYTICA** (Agentic GraphRAG, 4-bit AWQ Quantization, TensorRT FP16 Inference)
+- 💼 **Industry Experience:** AI/ML Engineer at **Codium** (Medical Vision, Swin-UNet, vLLM / TensorRT-LLM, GraphRAG)
 
 ---
 
@@ -64,10 +64,11 @@ Welcome to my personal portfolio repository. This modern, interactive, and respo
 - **Architecture:** Compressed NAFNet baseline from 67.9M params down to **10.6M params (6.4× reduction)** using multiscale perceptual loss and feature distillation.
 - **Performance:** Maintained **32.8 dB PSNR** and **0.912 SSIM** at **60+ FPS** on embedded GPU targets.
 
-### 3. ThalCare
-*Machine Learning Decision Support System for Thalassemia Trait Screening*
-- **Algorithms:** LightGBM, XGBoost, and Stacking Classifiers on Complete Blood Count (CBC) parameters.
-- **Performance:** **96.34% accuracy** and **0.978 ROC-AUC**, integrated with a clinical explainability dashboard.
+### 3. [ThalCare](https://github.com/abdullahse2211/ThalCare)
+*Multi-Class ML Diagnostic System for Alpha Thalassemia Carrier Detection*
+- **Algorithms:** Evaluated 6 ML architectures (hybrid CNN-Transformer, 1D-CNN, SVM, RF, LR) with 15 engineered features on CBC/HPLC parameters.
+- **Performance:** **90.60% balanced accuracy** and **0.906 weighted F1** under injected clinical noise, elevating Silent Carrier F1 to **0.92–0.955**.
+- **Demonstration:** [Watch YouTube Demo](https://youtu.be/ciiGgdlZ4d4?si=_xKxSkJOZ9t3njEA)
 
 ### 4. RogueAP-Scanner
 *802.11 Wireless Intrusion Detection & Evil Twin Attack Prevention Engine*
@@ -79,6 +80,11 @@ Welcome to my personal portfolio repository. This modern, interactive, and respo
 
 - 🥇 **Information Technology Specialist: JavaScript** — Certiport / Pearson VUE (`ID: mTp4-DwVM`)
 - 🥇 **Javascript Fullstack MERN Development** — NAVTTC & KICS UET Lahore (`Grade A+ | Reg: P-24-895714`)
+- 🥇 **Introduction to Data Science** — LUMSx / ilmX / LUMS (`ID: c17846ddd6c44266b817017e3045c766`)
+- 🥇 **Machine Learning & Deep Learning Internship** — National Center for Physics (NCP) Islamabad / AITeC (`Reg: NCP-CAAD/HR/Int-1455/AITeC`)
+- 🥇 **International Symposium on AI and Medical Imaging and Pattern Recognition** — NCP Islamabad / AITeC (`ISAIMP-2023`)
+- 🥇 **Scientific Writing for Impact Factor Journals** — UET Lahore CPD Programme (`Serial: 014-2023 | PEB-P-UETLHR-0034`)
+- 🥇 **Tools to Improve Your Professional Writing** — UET Lahore CPD Programme (`Serial: 34-2023 | PEB-P-UETLHR-0034`)
 - 🥇 **Introduction to Web Development** — IBM / Coursera
 - 🥇 **Prompt Engineering Certification** — NCAI & KICS UET Lahore
 - 🥇 **IT Career Symposium Recognition** — IEEE ComSoc & IEEE Computer Society Lahore Section

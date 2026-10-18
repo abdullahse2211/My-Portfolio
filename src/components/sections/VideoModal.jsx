@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { FiX, FiExternalLink } from 'react-icons/fi';
 import { FaYoutube } from 'react-icons/fa';
 
-export default function VideoModal({ videoId = 'MnS1vS5ZLqU', onClose }) {
+export default function VideoModal({ videoId = 'MnS1vS5ZLqU', projectTitle = 'Project', onClose }) {
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onClose();
@@ -23,9 +23,9 @@ export default function VideoModal({ videoId = 'MnS1vS5ZLqU', onClose }) {
           <div className="video-modal-info">
             <span className="video-modal-badge">
               <FaYoutube style={{ color: '#ff0000', marginRight: '0.4rem', fontSize: '1.1rem' }} />
-              RetinaXplain Live Demo
+              {projectTitle} Live Demo
             </span>
-            <span className="video-modal-sub">Academic Capstone Video Walkthrough</span>
+            <span className="video-modal-sub">Academic Project Video Walkthrough</span>
           </div>
 
           <div className="video-modal-actions">
@@ -49,7 +49,7 @@ export default function VideoModal({ videoId = 'MnS1vS5ZLqU', onClose }) {
         <div className="video-modal-iframe-wrapper">
           <iframe
             src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`}
-            title="RetinaXplain Academic Project Demo Video"
+            title={`${projectTitle} Academic Project Demo Video`}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
             className="video-modal-iframe"
@@ -59,3 +59,4 @@ export default function VideoModal({ videoId = 'MnS1vS5ZLqU', onClose }) {
     </div>
   );
 }
+

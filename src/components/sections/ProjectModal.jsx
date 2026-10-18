@@ -29,6 +29,14 @@ const galleryImages = [
 export default function ProjectModal({ project, onClose, onOpenVideo }) {
   const [currentImg, setCurrentImg] = useState(0);
 
+  const activeGallery = (project?.images && project.images.length > 0)
+    ? project.images.map((img) => ({
+        url: img.url,
+        caption: img.label || project.title,
+        tag: img.tag || 'Clinical AI'
+      }))
+    : galleryImages;
+
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onClose();
@@ -41,22 +49,28 @@ export default function ProjectModal({ project, onClose, onOpenVideo }) {
     };
   }, [onClose]);
 
+  // Reset active image on project change
+  useEffect(() => {
+    setCurrentImg(0);
+  }, [project?.id]);
+
   // Auto-rotate gallery
   useEffect(() => {
+    if (activeGallery.length <= 1) return;
     const timer = setInterval(() => {
-      setCurrentImg((prev) => (prev + 1) % galleryImages.length);
+      setCurrentImg((prev) => (prev + 1) % activeGallery.length);
     }, 4000);
     return () => clearInterval(timer);
-  }, []);
+  }, [activeGallery.length]);
 
   const handlePrev = (e) => {
     e.stopPropagation();
-    setCurrentImg((prev) => (prev === 0 ? galleryImages.length - 1 : prev - 1));
+    setCurrentImg((prev) => (prev === 0 ? activeGallery.length - 1 : prev - 1));
   };
 
   const handleNext = (e) => {
     e.stopPropagation();
-    setCurrentImg((prev) => (prev === galleryImages.length - 1 ? 0 : prev + 1));
+    setCurrentImg((prev) => (prev === activeGallery.length - 1 ? 0 : prev + 1));
   };
 
   if (!project) return null;
@@ -82,8 +96,8 @@ export default function ProjectModal({ project, onClose, onOpenVideo }) {
           {/* Gallery image */}
           <img
             key={currentImg}
-            src={galleryImages[currentImg].url}
-            alt={galleryImages[currentImg].caption}
+            src={activeGallery[currentImg]?.url || project.image}
+            alt={activeGallery[currentImg]?.caption || project.title}
             className="retina-hero-img"
           />
 
@@ -92,24 +106,30 @@ export default function ProjectModal({ project, onClose, onOpenVideo }) {
 
           {/* Caption badge */}
           <div className="retina-hero-caption">
-            <span className="retina-tag">{galleryImages[currentImg].tag}</span>
-            <span className="retina-caption-text">{galleryImages[currentImg].caption}</span>
+            <span className="retina-tag">{activeGallery[currentImg]?.tag}</span>
+            <span className="retina-caption-text">{activeGallery[currentImg]?.caption}</span>
           </div>
 
           {/* Nav arrows */}
-          <button className="retina-nav prev" onClick={handlePrev}><FiChevronLeft /></button>
-          <button className="retina-nav next" onClick={handleNext}><FiChevronRight /></button>
+          {activeGallery.length > 1 && (
+            <>
+              <button className="retina-nav prev" onClick={handlePrev}><FiChevronLeft /></button>
+              <button className="retina-nav next" onClick={handleNext}><FiChevronRight /></button>
+            </>
+          )}
 
           {/* Dots indicator */}
-          <div className="retina-dots">
-            {galleryImages.map((_, i) => (
-              <span
-                key={i}
-                className={`retina-dot ${i === currentImg ? 'active' : ''}`}
-                onClick={(e) => { e.stopPropagation(); setCurrentImg(i); }}
-              />
-            ))}
-          </div>
+          {activeGallery.length > 1 && (
+            <div className="retina-dots">
+              {activeGallery.map((_, i) => (
+                <span
+                  key={i}
+                  className={`retina-dot ${i === currentImg ? 'active' : ''}`}
+                  onClick={(e) => { e.stopPropagation(); setCurrentImg(i); }}
+                />
+              ))}
+            </div>
+          )}
         </div>
 
         {/* ─── Modal Body ─── */}
@@ -132,33 +152,25 @@ export default function ProjectModal({ project, onClose, onOpenVideo }) {
             {project.scope || project.description}
           </p>
 
-          {/* Preprocessing Pipeline Info */}
+          {/* Architecture / Pipeline Info */}
           <div className="retina-pipeline-section">
             <h4 className="retina-section-label">
               <FiLayers style={{ marginRight: '0.4rem' }} />
-              PREPROCESSING PIPELINE
+              TECHNICAL ARCHITECTURE & PIPELINE
             </h4>
             <div className="retina-pipeline-grid">
-              <div className="retina-pipeline-card">
-                <span className="pipeline-step">01</span>
-                <strong>Ben Graham Normalization</strong>
-                <p>Gaussian-weighted local average subtraction for uniform illumination</p>
-              </div>
-              <div className="retina-pipeline-card">
-                <span className="pipeline-step">02</span>
-                <strong>Circular Cropping</strong>
-                <p>Automated fundus boundary detection with black-region removal</p>
-              </div>
-              <div className="retina-pipeline-card">
-                <span className="pipeline-step">03</span>
-                <strong>Data Augmentation</strong>
-                <p>3,662 → ~16,000 samples via rotation, flip, color jitter & elastic transforms</p>
-              </div>
-              <div className="retina-pipeline-card">
-                <span className="pipeline-step">04</span>
-                <strong>Class Balancing</strong>
-                <p>Weighted sampler + SMOTE-like oversampling for minority DR severity grades</p>
-              </div>
+              {(project.pipelineSteps || [
+                { step: '01', title: 'Ben Graham Normalization', description: 'Gaussian-weighted local average subtraction for uniform illumination' },
+                { step: '02', title: 'Circular Cropping', description: 'Automated fundus boundary detection with black-region removal' },
+                { step: '03', title: 'Data Augmentation', description: '3,662 → ~16,000 samples via rotation, flip, color jitter & elastic transforms' },
+                { step: '04', title: 'Class Balancing', description: 'Weighted sampler + SMOTE-like oversampling for minority DR severity grades' }
+              ]).map((s, idx) => (
+                <div key={idx} className="retina-pipeline-card">
+                  <span className="pipeline-step">{s.step}</span>
+                  <strong>{s.title}</strong>
+                  <p>{s.description}</p>
+                </div>
+              ))}
             </div>
           </div>
 

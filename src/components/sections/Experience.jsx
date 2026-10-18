@@ -17,7 +17,7 @@ export default function Experience({ experiences = [] }) {
           subtitle="Building sovereign AI infrastructure, Agentic GraphRAG, and production vision-language models."
         />
 
-        <div ref={revealRef} className="timeline-wrapper reveal">
+        <div className="timeline-wrapper">
           {experiences.map((exp) => (
             <div key={exp.id || exp.company} className="timeline-item">
               {/* Timeline Node Icon */}

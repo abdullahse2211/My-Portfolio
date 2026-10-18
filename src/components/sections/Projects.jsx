@@ -227,7 +227,7 @@ function ProjectSpotlightCard({ project, onOpenModal, onOpenVideo, onOpenLightbo
 
 export default function Projects({ projects = [] }) {
   const [selectedModalProject, setSelectedModalProject] = useState(null);
-  const [activeVideoId, setActiveVideoId] = useState(null);
+  const [activeVideo, setActiveVideo] = useState(null); // { videoId, projectTitle }
   const [lightboxState, setLightboxState] = useState(null); // { images, initialIndex, title }
   const revealRef = useScrollReveal();
 
@@ -243,14 +243,14 @@ export default function Projects({ projects = [] }) {
           className="text-center"
         />
 
-        <div ref={revealRef} className="reveal">
-          {/* Spotlight Projects (RetinaXplain & BioNAFNet) */}
+        <div className="projects-container">
+          {/* Spotlight Projects (RetinaXplain, BioNAFNet & ThalCare) */}
           {spotlightProjects.map((p) => (
             <ProjectSpotlightCard
               key={p.id}
               project={p}
               onOpenModal={(proj) => setSelectedModalProject(proj)}
-              onOpenVideo={(vId) => setActiveVideoId(vId)}
+              onOpenVideo={(vId) => setActiveVideo({ videoId: vId, projectTitle: p.title })}
               onOpenLightbox={(imgs, idx, title) => setLightboxState({ images: imgs, initialIndex: idx, title })}
             />
           ))}
@@ -337,8 +337,9 @@ export default function Projects({ projects = [] }) {
             selectedModalProject.videoId
               ? () => {
                   const vId = selectedModalProject.videoId;
+                  const pTitle = selectedModalProject.title;
                   setSelectedModalProject(null);
-                  setActiveVideoId(vId);
+                  setActiveVideo({ videoId: vId, projectTitle: pTitle });
                 }
               : null
           }
@@ -356,10 +357,11 @@ export default function Projects({ projects = [] }) {
       )}
 
       {/* Demo Video Popup Modal */}
-      {activeVideoId && (
+      {activeVideo && (
         <VideoModal
-          videoId={activeVideoId}
-          onClose={() => setActiveVideoId(null)}
+          videoId={activeVideo.videoId}
+          projectTitle={activeVideo.projectTitle}
+          onClose={() => setActiveVideo(null)}
         />
       )}
     </section>
