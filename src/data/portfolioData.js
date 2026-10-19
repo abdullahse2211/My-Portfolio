@@ -23,7 +23,7 @@ export const portfolioData = {
       linkedin: 'https://linkedin.com/in/muhammad-abdullah2211',
       email: 'mailto:abdullahse2211@gmail.com'
     },
-    resumeUrl: '/Muhammad Abdullah_CV.pdf',
+    resumeUrl: '/Muhammad_Abdullah_CV.pdf?v=20261020',
     avatarUrl: '/profile-pic.png',
     statsHighlights: [
       { label: 'Research Projects', value: '4' },
